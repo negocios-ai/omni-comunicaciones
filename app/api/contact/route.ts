@@ -75,7 +75,11 @@ export async function POST(req: Request) {
   const isCorporate = need === "corporativo";
 
   try {
-    await resend.emails.send({
+    // Internal notification is the critical path — if the business never
+    // finds out about the lead, the form has failed regardless of what the
+    // visitor sees, so a Resend-level error here must fail the request too
+    // (the SDK resolves with { error } instead of throwing on API errors).
+    const internal = await resend.emails.send({
       from: fromAddress,
       to: toAddress,
       replyTo: email,
@@ -92,7 +96,19 @@ export async function POST(req: Request) {
       `,
     });
 
-    await resend.emails.send({
+    if (internal.error) {
+      console.error("contact api error (internal notification)", internal.error);
+      return NextResponse.json(
+        { error: "No se pudo enviar el mensaje. Intenta de nuevo o escríbenos por WhatsApp." },
+        { status: 500 }
+      );
+    }
+
+    // Auto-reply to the visitor is best-effort: the business already has the
+    // lead at this point, so a failure here (e.g. Resend sandbox mode only
+    // allowing the account's own address) shouldn't turn into an error for
+    // the visitor — just log it for us to notice.
+    const autoReply = await resend.emails.send({
       from: fromAddress,
       to: email,
       subject: isCorporate
@@ -102,6 +118,9 @@ export async function POST(req: Request) {
         ? COMPANY_LETTER_HTML
         : `<p>Hola ${escapeHtml(name)},</p><p>Recibimos tu mensaje y te responderemos a la brevedad. Si es urgente, también puedes escribirnos por WhatsApp al +593 99 659 0777.</p><p>Equipo OMNI COMUNICACIONES</p>`,
     });
+    if (autoReply.error) {
+      console.error("contact api warning (auto-reply not sent)", autoReply.error);
+    }
 
     return NextResponse.json({ ok: true });
   } catch (err) {
