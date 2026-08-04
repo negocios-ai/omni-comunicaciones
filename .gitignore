@@ -1,0 +1,31 @@
+# v0 sandbox internal files
+__v0_runtime_loader.js
+__v0_devtools.tsx
+__v0_jsx-dev-runtime.ts
+.snowflake/
+.v0-trash/
+.vercel/
+next.user-config.*
+
+# Environment variables
+.env*.local
+
+# Common ignores
+node_modules
+.next/
+.DS_Store
+.vercel
+tsconfig.tsbuildinfo
+
+# Fotos originales sin procesar (ya integradas en public/images) — no hace
+# falta subirlas al repo, solo pesan.
+RADIOSNEW/
+
+# Config local de Claude Code (planes, agentes) — no es parte de la app.
+.claude/
+
+# Prototipo estático previo al rebuild en Next.js — ya no se usa ni se sirve.
+index.html
+
+# Nota interna, no es parte de la app.
+OMNIWEB

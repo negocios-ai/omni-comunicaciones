@@ -1,0 +1,287 @@
+@import "tailwindcss";
+
+/**
+ * TYPE SCALE — documented, not arbitrary.
+ * UI/meta tier (mono labels): 10px (micro) → 11px (small) → 14px (text-sm, Tailwind step).
+ * Body tier: 14px → 16px (base) → 18px/20px (lg).
+ * Display tier (font-display, fluid): follows Tailwind's 2xl→8xl progression (~1.125–1.333 ratio)
+ * plus three clamp() fluid sizes reserved for hero/CTA/section headlines only.
+ * Do not introduce new arbitrary px values outside this set — extend the scale instead.
+ *
+ * COLOR SYSTEM — semantic tokens below, consumed via Tailwind utilities
+ * (bg-primary, text-muted-foreground, border-border, etc.), not raw hex in components.
+ * Documented exceptions (not tokenized on purpose):
+ *   - Gradient stops (e.g. #dde3ea) — cosmetic, single-use, not a reusable color.
+ *   - #0c4a7a — a darker on-light-surface variant of primary, used once for legibility
+ *     on the silver product-plate background.
+ *   - #1f9e57 / #25b366 — WhatsApp's own brand color, not part of our palette by design.
+ */
+
+@theme inline {
+  --font-sans: "Barlow", system-ui, sans-serif;
+  --font-mono: "IBM Plex Mono", "Courier New", monospace;
+  --font-display: "Barlow Condensed", system-ui, sans-serif;
+
+  /* Dark navy base — professional, not pure black */
+  --color-background: #05070d;
+  --color-foreground: #eef1f5;
+
+  /* Surfaces */
+  --color-card: #0c111a;
+  --color-card-foreground: #eef1f5;
+  --color-muted: #111826;
+  --color-muted-foreground: #8795a6;
+
+  /* Electric signal-blue accent */
+  --color-primary: #2196f3;
+  --color-primary-hover: #42a5f5;
+  --color-primary-foreground: #05070d;
+  --color-accent: #2196f3;
+  --color-accent-foreground: #05070d;
+
+  /* Silver / steel — secondary brand color */
+  --color-silver: #c7d0da;
+  --color-silver-dim: #8b98a6;
+
+  /* Borders */
+  --color-border: #1b2432;
+  --color-border-bright: #2a3648;
+  --color-input: #161e2b;
+  --color-ring: #2196f3;
+
+  /* Status */
+  --color-green: #22c55e;
+  --color-red: #ef4444;
+  --color-blue: #2196f3;
+  --color-amber: #f59e0b;
+
+  /* Chart */
+  --color-chart-1: #2196f3;
+  --color-chart-2: #22c55e;
+  --color-chart-3: #60a5fa;
+  --color-chart-4: #a78bfa;
+  --color-chart-5: #f87171;
+
+  /* Radius — zero, instrument-panel feel */
+  --radius: 0rem;
+  --radius-sm: 0rem;
+  --radius-md: 0rem;
+  --radius-lg: 0rem;
+  --radius-xl: 0rem;
+
+  /* Sidebar */
+  --color-sidebar: #05070d;
+  --color-sidebar-foreground: #eef1f5;
+  --color-sidebar-primary: #2196f3;
+  --color-sidebar-primary-foreground: #05070d;
+  --color-sidebar-accent: #111826;
+  --color-sidebar-accent-foreground: #eef1f5;
+  --color-sidebar-border: #1b2432;
+  --color-sidebar-ring: #2196f3;
+
+  /* Destructive */
+  --color-destructive: #ef4444;
+  --color-destructive-foreground: #eef1f5;
+
+  /* Popover */
+  --color-popover: #0c111a;
+  --color-popover-foreground: #eef1f5;
+
+  /* Secondary */
+  --color-secondary: #111826;
+  --color-secondary-foreground: #eef1f5;
+}
+
+@layer base {
+  * {
+    box-sizing: border-box;
+    border-color: var(--color-border);
+  }
+
+  html {
+    background: var(--color-background);
+    color: var(--color-foreground);
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-sans);
+    font-weight: 400;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden;
+  }
+
+  /* Deliberate, branded keyboard focus — not the browser default */
+  a:focus-visible,
+  button:focus-visible,
+  [tabindex]:focus-visible {
+    outline: 2px solid var(--color-primary);
+    outline-offset: 2px;
+  }
+
+  /* Subtle scanlines */
+  body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background: repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 3px,
+      rgba(0, 0, 0, 0.06) 3px,
+      rgba(0, 0, 0, 0.06) 4px
+    );
+    pointer-events: none;
+    z-index: 9999;
+  }
+
+  ::selection {
+    background: #2196f3;
+    color: #05070d;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+}
+
+/* ── TYPOGRAPHY ─────────────────────────────────── */
+.font-display {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-style: italic;
+}
+
+.font-display-normal {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-style: normal;
+}
+
+/* ── ANIMATIONS ─────────────────────────────────── */
+
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+.marquee { animation: marquee 30s linear infinite; }
+.marquee-fast { animation: marquee 16s linear infinite; }
+
+@keyframes fade-up {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.fade-up { animation: fade-up 0.5s ease forwards; }
+
+@keyframes status-pulse {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0.3; }
+}
+.status-pulse { animation: status-pulse 1.5s ease-in-out infinite; }
+
+@keyframes blue-glow {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(33,150,243,0); }
+  50%       { box-shadow: 0 0 24px 4px rgba(33,150,243,0.15); }
+}
+.signal-glow { animation: blue-glow 3s ease-in-out infinite; }
+
+/* WhatsApp launcher — a slow sonar ping, spaced out so it reads as "alive", not noisy */
+@keyframes whatsapp-ring {
+  0%   { transform: scale(1); opacity: 0.5; }
+  70%  { transform: scale(1.55); opacity: 0; }
+  100% { transform: scale(1.55); opacity: 0; }
+}
+.whatsapp-ring { animation: whatsapp-ring 2.8s ease-out infinite; }
+@media (prefers-reduced-motion: reduce) {
+  .whatsapp-ring { animation: none; }
+}
+
+/* ── UTILITY ─────────────────────────────────────── */
+
+.hr-struct {
+  border: none;
+  height: 1px;
+  background: var(--color-border);
+}
+
+.hr-signal {
+  border: none;
+  height: 1px;
+  background: linear-gradient(90deg, #2196f3 0%, transparent 70%);
+}
+
+/* System tag */
+.sys-tag {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: #2196f3;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+.sys-tag::before {
+  content: "";
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: #2196f3;
+  display: inline-block;
+}
+
+/* Amber variant — used for real-but-not-alarming scarcity (last-unit stock) */
+.sys-tag-amber {
+  color: var(--color-amber);
+}
+.sys-tag-amber::before {
+  background: var(--color-amber);
+}
+
+/* Cursor tracker — a soft shadow, not a ring; only visible inside content zones */
+.cursor-shadow {
+  background: radial-gradient(circle, rgba(33, 150, 243, 0.16) 0%, rgba(33, 150, 243, 0.06) 45%, transparent 72%);
+  filter: blur(6px);
+  transition: opacity 0.5s ease, width 0.4s ease, height 0.4s ease, margin 0.4s ease, background 0.4s ease;
+}
+.cursor-shadow--locked {
+  width: 7rem;
+  height: 7rem;
+  margin-left: -3.5rem;
+  margin-top: -3.5rem;
+  background: radial-gradient(circle, rgba(33, 150, 243, 0.24) 0%, rgba(33, 150, 243, 0.08) 45%, transparent 72%);
+}
+
+/* Product photo reveal — tunes into focus, like acquiring a signal. Once, on first view. */
+@keyframes signal-reveal {
+  from { opacity: 0; filter: blur(16px); transform: scale(0.94); }
+  60%  { opacity: 1; }
+  to   { opacity: 1; filter: blur(0); transform: scale(1); }
+}
+.signal-reveal {
+  animation: signal-reveal 0.75s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+/* Row item hover */
+.row-hover {
+  transition: background 0.15s ease;
+}
+.row-hover:hover {
+  background: #0c111a;
+}
+
+/* Grid bg pattern */
+.grid-bg {
+  background-image:
+    linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px);
+  background-size: 80px 80px;
+}

@@ -1,0 +1,401 @@
+export interface Spec {
+  label: string;
+  value: string;
+}
+
+export interface ProductItem {
+  id: string;
+  tag: string;
+  name: string;
+  idealFor: string;
+  specs: Spec[];
+  price: string;
+  priceNote: string;
+  images: string[];
+  featured?: boolean;
+}
+
+export const DOMESTICAS: ProductItem[] = [
+  {
+    id: "01",
+    tag: "UHF · ANÁLOGO",
+    name: "TXPRO TX-320 (el par)",
+    idealFor: "Uso ocasional en casa, comercio pequeño o eventos familiares donde basta con un radio sencillo para mantenerse en contacto a corta distancia.",
+    specs: [
+      { label: "Tecnología", value: "Análogo" },
+      { label: "Potencia", value: "2 W" },
+      { label: "Capacidad", value: "16 canales UHF 400-470 MHz" },
+      { label: "Alcance real", value: "300-500 m ciudad · hasta 800 m campo abierto" },
+      { label: "Garantía", value: "3 meses" },
+      { label: "Vida útil", value: "2 a 3 años o más, según cuidado" },
+    ],
+    price: "$105",
+    priceNote: "el par + IVA · programación gratis",
+    images: [
+      "/images/products/tx320/01-front.webp",
+      "/images/products/tx320/02-lado.webp",
+      "/images/products/tx320/03-lado2.webp",
+      "/images/products/tx320/04-espalda.webp",
+    ],
+  },
+  {
+    id: "02",
+    tag: "UHF · ANÁLOGO",
+    name: "TXPRO TX-600",
+    idealFor: "Comercios y locales pequeños que necesitan un radio individual económico, con protección de la conversación frente a otros radios.",
+    specs: [
+      { label: "Tecnología", value: "Análogo" },
+      { label: "Potencia", value: "5 W" },
+      { label: "Seguridad", value: "Scrambler de voz (protege la conversación)" },
+      { label: "Capacidad", value: "16 canales UHF 400-470 MHz" },
+      { label: "Garantía", value: "6 meses" },
+      { label: "Vida útil", value: "2 a 4 años o más, según cuidado" },
+    ],
+    price: "$100",
+    priceNote: "+ IVA · programación gratis",
+    images: [
+      "/images/products/tx600/01-front.webp",
+      "/images/products/tx600/02-lado.webp",
+      "/images/products/tx600/03-espalda.webp",
+    ],
+    featured: true,
+  },
+  {
+    id: "03",
+    tag: "UHF/VHF · DIGITAL DMR",
+    name: "TXPRO TX-680",
+    idealFor: "Quienes ya piensan en digital pero quieren empezar con un equipo doméstico: migra a DMR sin perder compatibilidad con radios análogos.",
+    specs: [
+      { label: "Tecnología", value: "Digital-DMR / Análogo" },
+      { label: "Potencia", value: "5 W" },
+      { label: "Capacidad", value: "16 canales (UHF 400-512 MHz o VHF 136-176 MHz)" },
+      { label: "Modo directo", value: "Doble slot, sin necesidad de repetidora" },
+      { label: "Garantía", value: "6 meses" },
+      { label: "Vida útil", value: "2 a 4 años o más, según cuidado" },
+    ],
+    price: "$140",
+    priceNote: "+ IVA · programación gratis",
+    images: [
+      "/images/products/tx680/01-front.webp",
+      "/images/products/tx680/02-lado.webp",
+      "/images/products/tx680/03-otro-lado.webp",
+      "/images/products/tx680/04-atras.webp",
+    ],
+  },
+  {
+    id: "04",
+    tag: "UHF · ANÁLOGO PROFESIONAL · JAPÓN",
+    name: "ICOM IC-F200",
+    idealFor: "Quienes buscan la calidad de fábrica japonesa ICOM en un radio compacto, a un precio accesible dentro de la línea doméstica.",
+    specs: [
+      { label: "Marca", value: "ICOM (Japón)" },
+      { label: "Potencia", value: "2 W" },
+      { label: "Capacidad", value: "16 canales UHF 450-470 MHz" },
+      { label: "Resistencia", value: "IP54 + MIL-STD-810" },
+      { label: "Batería", value: "Li-ion 2350 mAh · hasta 15 h de uso" },
+      { label: "Garantía", value: "2 años (fábrica ICOM)" },
+      { label: "Vida útil", value: "3 a 7 años o más, según cuidado" },
+    ],
+    price: "$135",
+    priceNote: "+ IVA · programación gratis",
+    images: [
+      "/images/products/icf200/01-front.webp",
+      "/images/products/icf200/02-angulo.webp",
+      "/images/products/icf200/03-lado.webp",
+      "/images/products/icf200/04-back.webp",
+    ],
+  },
+  {
+    id: "05",
+    tag: "FRS/GMRS · USO PERSONAL",
+    name: "MOTOROLA TALKABOUT T470",
+    idealFor: "Familias, paseos, fincas y eventos informales. Es un radio de uso personal que no requiere matrícula de frecuencia, a diferencia del resto del catálogo.",
+    specs: [
+      { label: "Uso", value: "Personal/doméstico, no requiere matrícula ARCOTEL" },
+      { label: "Alcance real", value: "0,3 a 3 km según terreno (la caja anuncia hasta 56 km en condiciones ideales de montaña a valle)" },
+      { label: "Resistencia", value: "IPX4 (lluvia y salpicaduras)" },
+      { label: "Batería", value: "Hasta 12 h recargable · 28 h con pilas AA" },
+      { label: "Capacidad", value: "22 canales FRS/GMRS" },
+      { label: "Garantía", value: "1 año" },
+      { label: "Vida útil", value: "1 a 2 años o más, según cuidado" },
+    ],
+    price: "$130",
+    priceNote: "+ IVA",
+    images: [
+      "/images/products/t470/01-front.webp",
+      "/images/products/t470/02-espalda.webp",
+    ],
+  },
+];
+
+export const SEMIPROFESIONALES: ProductItem[] = [
+  {
+    id: "01",
+    tag: "UHF/VHF · ANÁLOGO",
+    name: "KENWOOD TK2000 / TK3000",
+    idealFor: "Organización de eventos, comercio y áreas de servicio al cliente que necesitan un equipo discreto, delgado, ligero y muy fácil de operar.",
+    specs: [
+      { label: "Tecnología", value: "Análogo" },
+      { label: "Capacidad", value: "16 canales (TK3000 UHF / TK2000 VHF)" },
+      { label: "Diseño", value: "Ergonómico, ultradelgado" },
+      { label: "Garantía", value: "1 año" },
+      { label: "Vida útil", value: "5 a 7 años o más, según cuidado" },
+    ],
+    price: "$155",
+    priceNote: "+ IVA · programación gratis",
+    images: [
+      "/images/products/tk2000-3000/01-front.jpg",
+      "/images/products/tk2000-3000/02-front.jpg",
+      "/images/products/tk2000-3000/04-diagonal.webp",
+      "/images/products/tk2000-3000/03-set.jpg",
+    ],
+    featured: true,
+  },
+  {
+    id: "02",
+    tag: "UHF/VHF · ANÁLOGO",
+    name: "MOTOROLA RVA50",
+    idealFor: "Comercios minoristas, restaurantes, hoteles y pequeñas empresas que requieren una comunicación sencilla, directa y muy resistente para el trabajo diario.",
+    specs: [
+      { label: "Tecnología", value: "Análogo" },
+      { label: "Capacidad", value: "8 canales (UHF/VHF)" },
+      { label: "Potencia", value: "2W de transmisión" },
+      { label: "Resistencia", value: "IP55" },
+      { label: "Garantía", value: "1 año" },
+      { label: "Vida útil", value: "5 a 7 años o más, según cuidado" },
+    ],
+    price: "$175",
+    priceNote: "+ IVA · programación gratis",
+    images: [
+      "/images/products/rva50/01-front.jpg",
+      "/images/products/rva50/02-lado.jpg",
+      "/images/products/rva50/03-espalda.jpg",
+    ],
+  },
+  {
+    id: "03",
+    tag: "UHF/VHF · ANÁLOGO",
+    name: "MOTOROLA MOTOTRBO DEP250",
+    idealFor: "Manufactura, logística y centros educativos que buscan un radio profesional confiable y económico, con la posibilidad de migrar a digital más adelante.",
+    specs: [
+      { label: "Tecnología", value: "Análogo" },
+      { label: "Capacidad", value: "16 canales (UHF/VHF)" },
+      { label: "Resistencia", value: "IP54" },
+      { label: "Garantía", value: "1 año" },
+      { label: "Vida útil", value: "7 a 9 años o más, según cuidado" },
+    ],
+    price: "$205",
+    priceNote: "+ IVA · programación gratis",
+    images: [
+      "/images/products/dep250e/01-front.jpg",
+      "/images/products/dep250e/02-arriba.webp",
+    ],
+  },
+  {
+    id: "04",
+    tag: "UHF/VHF · DIGITAL DMR",
+    name: "MOTOROLA MOTOTRBO DEP250e",
+    idealFor: "Manufactura, logística y centros educativos que buscan una transición fácil a la tecnología digital para obtener un audio más claro y mayor cobertura.",
+    specs: [
+      { label: "Tecnología", value: "Digital-DMR / Análogo" },
+      { label: "Capacidad", value: "16 canales (UHF/VHF)" },
+      { label: "Resistencia", value: "IP54" },
+      { label: "Garantía", value: "1 año" },
+      { label: "Vida útil", value: "7 a 9 años o más, según cuidado" },
+    ],
+    price: "$255",
+    priceNote: "+ IVA · programación gratis",
+    images: [
+      "/images/products/dep250e/01-front.jpg",
+      "/images/products/dep250e/02-arriba.webp",
+    ],
+  },
+];
+
+export const PROFESIONALES: ProductItem[] = [
+  {
+    id: "01",
+    tag: "UHF/VHF · DIGITAL DMR",
+    name: "KENWOOD NX1200DK / NX1300DK",
+    idealFor: "Seguridad privada, flotas de transporte y plantas industriales complejas que requieren una alta capacidad de canales y funciones digitales avanzadas.",
+    specs: [
+      { label: "Tecnología", value: "Digital-DMR / Análogo" },
+      { label: "Capacidad", value: "260 canales (NX1200DK VHF / NX1300DK UHF)" },
+      { label: "Garantía", value: "2 años" },
+      { label: "Vida útil", value: "8 a 10 años o más, según cuidado" },
+    ],
+    price: "$265",
+    priceNote: "+ IVA · programación gratis",
+    images: [
+      "/images/products/nx1200-1300/01-front.webp",
+      "/images/products/nx1200-1300/02-completa.webp",
+      "/images/products/nx1200-1300/03-arriba.webp",
+    ],
+    featured: true,
+  },
+  {
+    id: "02",
+    tag: "UHF/VHF · DIGITAL DMR",
+    name: "MOTOROLA R2",
+    idealFor: "Industria pesada, construcción, minería y operaciones a gran escala que demandan equipos ultrarresistentes, confiables y de máxima durabilidad en campo.",
+    specs: [
+      { label: "Tecnología", value: "Digital-DMR / Análogo" },
+      { label: "Capacidad", value: "64 canales (UHF/VHF)" },
+      { label: "Resistencia", value: "IP55" },
+      { label: "Garantía", value: "2 años" },
+      { label: "Vida útil", value: "8 a 12 años o más, según cuidado" },
+    ],
+    price: "$375",
+    priceNote: "+ IVA · programación gratis",
+    images: [
+      "/images/products/r2/01-front.png",
+      "/images/products/r2/02-lado.png",
+      "/images/products/r2/03-otro-lado.png",
+      "/images/products/r2/04-espalda.png",
+    ],
+  },
+];
+
+export const POC: ProductItem[] = [
+  {
+    id: "01",
+    tag: "POC · 4G LTE + WIFI",
+    name: "RUGGEAR RG190",
+    idealFor: "Flotas de transporte, despachadores y trabajadores móviles que necesitan cobertura a nivel nacional o internacional, manteniendo la sensación de un radio tradicional.",
+    specs: [
+      { label: "Conectividad", value: "4G LTE + WiFi, Bluetooth, GPS/A-GPS" },
+      { label: "Audio", value: "Altavoz frontal 2W + PTT lateral" },
+      { label: "Almacenamiento", value: "1GB interno" },
+      { label: "Garantía", value: "2 años" },
+      { label: "Vida útil", value: "3 a 5 años o más, según cuidado" },
+      { label: "Incluye", value: "Licencia internacional de red PTT — 1 año incluido" },
+    ],
+    price: "$275",
+    priceNote: "+ IVA",
+    images: [
+      "/images/products/rg190/01-front.webp",
+      "/images/products/rg190/02-left.webp",
+      "/images/products/rg190/03-top.webp",
+      "/images/products/rg190/04-back.webp",
+    ],
+    featured: true,
+  },
+  {
+    id: "02",
+    tag: "POC · 4G LTE + WIFI",
+    name: "RUGGEAR RG360",
+    idealFor: "Supervisores, logística y operaciones en campo que requieren un dispositivo inteligente, resistente y con pantalla táctil para gestionar aplicaciones corporativas.",
+    specs: [
+      { label: "Pantalla", value: "Táctil 3.0\" · Android 10 Go" },
+      { label: "Batería", value: "3000 mAh extraíble" },
+      { label: "Resistencia", value: "IP68 + MIL-STD-810H" },
+      { label: "Garantía", value: "2 años" },
+      { label: "Vida útil", value: "3 a 5 años o más, según cuidado" },
+      { label: "Incluye", value: "Licencia internacional de red PTT — 1 año incluido" },
+    ],
+    price: "$310",
+    priceNote: "+ IVA",
+    images: [
+      "/images/products/rg360/01-front.webp",
+      "/images/products/rg360/02-side.webp",
+      "/images/products/rg360/03-top.webp",
+      "/images/products/rg360/04-bag.webp",
+    ],
+  },
+  {
+    id: "03",
+    tag: "POC · WAVE PTX",
+    name: "MOTOROLA TLK110",
+    idealFor: "Corporaciones a nivel nacional, transporte de valores y equipos de seguridad crítica que priorizan funciones de emergencia avanzadas y audio perfecto mediante IA.",
+    specs: [
+      { label: "Conectividad", value: "3G/4G LTE + WiFi, sin límite de distancia" },
+      { label: "Audio", value: "Supresión de ruido por IA" },
+      { label: "Seguridad", value: "Botón de emergencia, hombre caído" },
+      { label: "Resistencia", value: "IP67 + MIL-STD-810H · 18h batería" },
+      { label: "Garantía", value: "2 años" },
+      { label: "Vida útil", value: "5 a 7 años o más, según cuidado" },
+      { label: "Incluye", value: "Licencia WAVE PTX incluida" },
+    ],
+    price: "$515",
+    priceNote: "+ IVA",
+    images: [
+      "/images/products/tlk110/01-front.webp",
+      "/images/products/tlk110/02-right.webp",
+      "/images/products/tlk110/03-top.webp",
+      "/images/products/tlk110/04-back.webp",
+    ],
+  },
+  {
+    id: "04",
+    tag: "POC · 4G LTE + WIFI",
+    name: "RUGGEAR RG725",
+    idealFor: "Personal de campo que necesita un smartphone robusto tipo radio, con cámara y apps corporativas además de push-to-talk.",
+    specs: [
+      { label: "Pantalla", value: "4.0\" HD · 640 × 1136 px" },
+      { label: "Batería", value: "5000 mAh" },
+      { label: "Conectividad", value: "4G LTE + WiFi + Bluetooth + GPS/A-GPS/Glonass" },
+      { label: "Cámara", value: "13 MP" },
+      { label: "Sistema", value: "Android 10" },
+      { label: "Garantía", value: "2 años" },
+      { label: "Vida útil", value: "5 a 7 años o más, según cuidado" },
+      { label: "Incluye", value: "Licencia internacional de red PTT — 1 año incluido" },
+    ],
+    price: "$495",
+    priceNote: "+ IVA",
+    images: [
+      "/images/products/rg725/01-front.webp",
+      "/images/products/rg725/02-lado.webp",
+      "/images/products/rg725/03-lado2.webp",
+      "/images/products/rg725/04-back.webp",
+    ],
+  },
+  {
+    id: "05",
+    tag: "POC · 4G LTE + WIFI",
+    name: "RUGGEAR RG750",
+    idealFor: "Operaciones críticas y equipos de emergencia que requieren el equipo POC más avanzado de la línea RugGear, con mayor procesador y resistencia IP68.",
+    specs: [
+      { label: "Pantalla", value: "4.0\" IPS · 1136 × 640 px" },
+      { label: "Batería", value: "5000 mAh removible" },
+      { label: "Resistencia", value: "IP68 + MIL-STD-810" },
+      { label: "Cámara", value: "13 MP" },
+      { label: "Procesador", value: "Qualcomm QCM4290 octa-core" },
+      { label: "Sistema", value: "Android 12" },
+      { label: "Garantía", value: "2 años" },
+      { label: "Vida útil", value: "5 a 7 años o más, según cuidado" },
+      { label: "Incluye", value: "Licencia internacional de red PTT — 1 año incluido" },
+    ],
+    price: "$785",
+    priceNote: "+ IVA",
+    images: [
+      "/images/products/rg750/01-front.webp",
+      "/images/products/rg750/02-angulo-izq.webp",
+      "/images/products/rg750/03-angulo-der.webp",
+      "/images/products/rg750/04-back.webp",
+    ],
+  },
+  {
+    id: "06",
+    tag: "POC · BASE / VEHICULAR · 4G LTE",
+    name: "RUGGEAR RG230",
+    idealFor: "Centrales de despacho, flotas y vehículos que necesitan una base fija o móvil con parlante potente para operar como estación de PTT.",
+    specs: [
+      { label: "Tipo", value: "Base / vehicular (requiere alimentación 12V o fuente)" },
+      { label: "Pantalla", value: "Táctil 3.5\"" },
+      { label: "Audio", value: "Altavoz 4W · 105 dB" },
+      { label: "Conectividad", value: "4G LTE + WiFi + GPS multi-constelación" },
+      { label: "Sistema", value: "RG-OS 11 (Android Go)" },
+      { label: "Garantía", value: "2 años" },
+      { label: "Vida útil", value: "5 a 7 años o más, según cuidado" },
+      { label: "Incluye", value: "Licencia internacional de red PTT — 1 año incluido" },
+    ],
+    price: "$695",
+    priceNote: "+ IVA",
+    images: [
+      "/images/products/rg230/01-front.webp",
+      "/images/products/rg230/02-left.webp",
+      "/images/products/rg230/03-right.webp",
+      "/images/products/rg230/04-back.webp",
+    ],
+  },
+];
