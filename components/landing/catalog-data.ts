@@ -175,7 +175,7 @@ export const SEMIPROFESIONALES: ProductItem[] = [
   {
     id: "03",
     tag: "UHF/VHF · ANÁLOGO",
-    name: "MOTOROLA MOTOTRBO DEP250",
+    name: "MOTOROLA MOTOTRBO DEP250e",
     idealFor: "Manufactura, logística y centros educativos que buscan un radio profesional confiable y económico, con la posibilidad de migrar a digital más adelante.",
     specs: [
       { label: "Tecnología", value: "Análogo" },
