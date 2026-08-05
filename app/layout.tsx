@@ -8,14 +8,22 @@ import { ScrollProgressBar } from '@/components/ui/scroll-reveal'
 import { SITE_URL } from '@/lib/site-config'
 import './globals.css'
 
-const TITLE = 'OMNI COMUNICACIONES — Radios Motorola, Kenwood y equipos POC';
-const DESCRIPTION = 'Distribuidor especializado en radios Motorola y Kenwood, y equipos POC. Semiprofesionales, profesionales y cobertura celular sin límites.';
+const TITLE = 'Radios Motorola y Kenwood en Ecuador | OMNI COMUNICACIONES';
+const DESCRIPTION = 'Distribuidor oficial de radios Motorola, Kenwood e ICOM en Ecuador. 20 años de trayectoria, programación gratis y soporte técnico local. Cotiza por WhatsApp.';
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: TITLE,
   description: DESCRIPTION,
-  keywords: ['radios Motorola', 'radios Kenwood', 'equipos POC', 'radiocomunicación profesional', 'Ecuador'],
+  keywords: [
+    'radios Motorola Ecuador',
+    'radios Kenwood Ecuador',
+    'radios ICOM Ecuador',
+    'equipos POC RugGear',
+    'radiocomunicación profesional',
+    'walkie talkie Ecuador',
+    'distribuidor Motorola Ecuador',
+  ],
   openGraph: {
     title: TITLE,
     description: DESCRIPTION,
@@ -30,6 +38,9 @@ export const metadata: Metadata = {
     title: TITLE,
     description: DESCRIPTION,
     images: ['/og-image.png'],
+  },
+  verification: {
+    google: 'cdCB3n-94zA71o9mNQlghEL93h4touxeTwEPtfSQ0fk',
   },
 }
 
