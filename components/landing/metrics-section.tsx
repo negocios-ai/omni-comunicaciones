@@ -52,7 +52,14 @@ const METRICS = [
   { end: 20, suffix: "", label: "AÑOS DE TRAYECTORIA", sub: "como aliado tecnológico en Ecuador" },
   { end: 30, suffix: "+", label: "CLIENTES CORPORATIVOS", sub: "activos a nivel nacional" },
   { end: 4, suffix: "", label: "MARCAS OFICIALES", sub: "Motorola, Kenwood, ICOM, RugGear" },
-  { end: 0, suffix: "", label: "GARANTÍA ESTÁNDAR", sub: "en profesionales y POC · extendida disponible", display: "2 AÑOS" },
+  {
+    end: 0,
+    suffix: "",
+    label: "GARANTÍA ESTÁNDAR",
+    sub: "Garantía extendida en equipos profesionales",
+    note: "*Modelos exclusivos",
+    display: "2 AÑOS",
+  },
 ];
 
 const CLIENTS = [
@@ -107,6 +114,9 @@ export function MetricsSection() {
               )}
               <div className="mt-3 font-mono text-[0.625rem] text-primary tracking-[0.18em]">{m.label}</div>
               <div className="mt-1 font-mono text-[0.625rem] text-muted-foreground">{m.sub}</div>
+              {m.note && (
+                <div className="mt-0.5 font-mono text-[0.5625rem] text-muted-foreground/60">{m.note}</div>
+              )}
             </ScrollStaggerItem>
           ))}
         </ScrollStagger>
