@@ -15,7 +15,6 @@ const EQUIPOS_LINKS = [
 const navLinks = [
   { name: "SERVICIOS", href: "#servicios" },
   { name: "MÉTRICAS", href: "#metricas" },
-  { name: "TESTIMONIOS", href: "#testimonios" },
   { name: "CÓMO COMPRAR", href: "#como-comprar" },
   { name: "LIQUIDACIÓN", href: "#otros-productos" },
   { name: "CONTACTO", href: "#contacto" },

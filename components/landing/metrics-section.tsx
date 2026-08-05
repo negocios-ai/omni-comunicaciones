@@ -50,9 +50,9 @@ function AnimCounter({
 
 const METRICS = [
   { end: 20, suffix: "", label: "AÑOS DE TRAYECTORIA", sub: "como aliado tecnológico en Ecuador" },
-  { end: 13, suffix: "+", label: "CLIENTES CORPORATIVOS", sub: "activos a nivel nacional" },
+  { end: 30, suffix: "+", label: "CLIENTES CORPORATIVOS", sub: "activos a nivel nacional" },
   { end: 4, suffix: "", label: "MARCAS OFICIALES", sub: "Motorola, Kenwood, ICOM, RugGear" },
-  { end: 0, suffix: "", label: "GARANTÍA MÁXIMA", sub: "en equipos profesionales y POC", display: "2 AÑOS" },
+  { end: 0, suffix: "", label: "GARANTÍA ESTÁNDAR", sub: "en profesionales y POC · extendida disponible", display: "2 AÑOS" },
 ];
 
 const CLIENTS = [

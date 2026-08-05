@@ -99,7 +99,8 @@ function AdvisoryTile() {
   return (
     <TileShell eyebrow="¿DUDAS?" title="¿NO SABES QUÉ EQUIPO NECESITAS?">
       <p className="mt-3 text-sm text-muted-foreground leading-relaxed">
-        Cuéntanos tu operación y te recomendamos el modelo correcto, sin compromiso.
+        Cuéntanos tu operación y te recomendamos el modelo correcto, sin compromiso. Pregunta también por
+        descuentos exclusivos.
       </p>
       <a
         href={waLink("Hola, no estoy seguro qué equipo necesito. ¿Me pueden asesorar?")}

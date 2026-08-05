@@ -3,7 +3,6 @@ import { HeroSection } from "@/components/landing/hero-section";
 import { ProductSection } from "@/components/landing/product-section";
 import { ServicesSection } from "@/components/landing/services-section";
 import { MetricsSection } from "@/components/landing/metrics-section";
-import { TestimonialsSection } from "@/components/landing/testimonials-section";
 import { CtaSection } from "@/components/landing/cta-section";
 import { OutletProductsSection } from "@/components/landing/outlet-products-section";
 import { ProcessTimelineSection } from "@/components/landing/process-timeline-section";
@@ -62,7 +61,6 @@ export default function Home() {
       <BrandRevealScroll />
       <ServicesSection />
       <MetricsSection />
-      <TestimonialsSection />
       <ProcessTimelineSection />
       <OutletProductsSection />
       <CtaSection />

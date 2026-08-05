@@ -139,7 +139,7 @@ export function CtaSection() {
             <div className="flex items-center justify-center gap-8 mt-10 flex-wrap">
               {[
                 { v: "20", l: "años de trayectoria" },
-                { v: "13+", l: "clientes corporativos" },
+                { v: "30+", l: "clientes corporativos" },
                 { v: "2 AÑOS", l: "garantía en profesionales" },
                 { v: "OFICIAL", l: "Motorola, Kenwood e ICOM" },
               ].map((s) => (
