@@ -37,14 +37,14 @@ export const PROCESS_STEPS: ProcessStep[] = [
   {
     id: "03",
     title: "Cotización",
-    description: "Te enviamos la propuesta con precio y condiciones.",
+    description: "Te enviamos la propuesta con valores especiales.",
     icon: FileInvoiceIcon,
     colorGroup: "amber",
   },
   {
     id: "04",
     title: "Negociación",
-    description: "Ajustamos precio o condiciones si lo necesitas.",
+    description: "Ajustamos valores y forma de inversión.",
     icon: ExchangeArrowsIcon,
     colorGroup: "amber",
   },
