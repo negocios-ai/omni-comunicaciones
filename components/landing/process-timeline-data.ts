@@ -4,7 +4,6 @@ import {
   UserCheckIcon,
   FileInvoiceIcon,
   ExchangeArrowsIcon,
-  ShieldCheckIcon,
   CreditCardIcon,
   ReceiptIcon,
   TruckIcon,
@@ -50,9 +49,9 @@ export const PROCESS_STEPS: ProcessStep[] = [
   },
   {
     id: "05",
-    title: "Acuerdo",
-    description: "Confirmamos juntos los términos finales del pedido.",
-    icon: ShieldCheckIcon,
+    title: "Facturación",
+    description: "Emitimos tu factura o comprobante de inmediato.",
+    icon: ReceiptIcon,
     colorGroup: "amber",
   },
   {
@@ -64,20 +63,13 @@ export const PROCESS_STEPS: ProcessStep[] = [
   },
   {
     id: "07",
-    title: "Facturación",
-    description: "Emitimos tu factura o comprobante de inmediato.",
-    icon: ReceiptIcon,
-    colorGroup: "amber",
-  },
-  {
-    id: "08",
     title: "Envío / Entrega",
     description: "Despachamos tu pedido a nivel nacional.",
     icon: TruckIcon,
     colorGroup: "green",
   },
   {
-    id: "09",
+    id: "08",
     title: "Seguimiento post-venta",
     description: "Confirmamos la recepción y te damos soporte.",
     icon: HeadsetIcon,
