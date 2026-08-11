@@ -40,7 +40,7 @@ export const metadata: Metadata = {
     images: ['/og-image.png'],
   },
   verification: {
-    google: 'cdCB3n-94zA71o9mNQlghEL93h4touxeTwEPtfSQ0fk',
+    google: 't7TFXfdlTPDQ_YARLWj0kQkpWsXaLZ8xHDOpCjHttjA',
   },
 }
 
