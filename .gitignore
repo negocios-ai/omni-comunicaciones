@@ -29,3 +29,8 @@ index.html
 
 # Nota interna, no es parte de la app.
 OMNIWEB
+
+# Archivos de importación a Shopify: exponen inventario y SKUs internos,
+# no son parte de la app ni hace falta que estén en el repo.
+shopify-import.csv
+shopify-import-otros-productos.csv
