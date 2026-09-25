@@ -1,10 +1,16 @@
 import type { Metadata } from "next";
 import { Navigation } from "@/components/landing/navigation";
 import { FooterSection } from "@/components/landing/footer-section";
+import { OG_DEFAULTS, SITE_URL } from "@/lib/site-config";
+
+const TITLE = "Términos y Condiciones — OMNI COMUNICACIONES";
+const DESCRIPTION = "Condiciones de uso del sitio y de compra de equipos OMNI COMUNICACIONES.";
 
 export const metadata: Metadata = {
-  title: "Términos y Condiciones — OMNI COMUNICACIONES",
-  description: "Condiciones de uso del sitio y de compra de equipos OMNI COMUNICACIONES.",
+  title: TITLE,
+  description: DESCRIPTION,
+  alternates: { canonical: `${SITE_URL}/terminos` },
+  openGraph: { ...OG_DEFAULTS, title: TITLE, description: DESCRIPTION, url: `${SITE_URL}/terminos`, type: "website" },
 };
 
 const linkClass = "text-primary underline underline-offset-2 hover:text-primary-hover";
@@ -19,16 +25,24 @@ export default function TerminosPage() {
           Términos y Condiciones
         </h1>
         <p className="font-mono text-[0.625rem] text-muted-foreground tracking-widest uppercase mb-10">
-          Última actualización: agosto 2026
+          Última actualización: septiembre 2026
         </p>
 
         <div className="space-y-8 text-sm leading-relaxed text-muted-foreground [&_h2]:font-display [&_h2]:text-foreground [&_h2]:text-xl [&_h2]:mb-3 [&_h2]:tracking-tight [&_strong]:text-foreground [&_ul]:list-disc [&_ul]:pl-5 [&_ul]:space-y-1">
           <section>
             <h2>1. Sobre este sitio</h2>
             <p>
-              Este sitio es un catálogo informativo de <strong>OMNI COMUNICACIONES</strong>,
-              distribuidor de radios Motorola, Kenwood, ICOM y equipos POC RugGear en Ecuador. La
-              navegación y el uso del sitio implican la aceptación de estos términos.
+              Este sitio es el catálogo de radios de comunicación y productos destacados de{" "}
+              <strong>OMNI COMUNICACIONES</strong>, distribuidor de radios Motorola, Kenwood, ICOM y
+              equipos POC RugGear en Ecuador. Lo opera <strong>OMNITRONEC CIA. LTDA.</strong> (RUC
+              1793226293001), que en este sitio usa el nombre OMNI COMUNICACIONES y es la misma
+              empresa de{" "}
+              <a href="https://omnitronec.com" className={linkClass}>
+                omnitronec.com
+              </a>
+              , nuestro sitio principal, donde encontrarás todo nuestro portafolio de soluciones
+              empresariales. La navegación y el uso del sitio implican la aceptación de estos
+              términos.
             </p>
           </section>
 

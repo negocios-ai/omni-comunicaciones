@@ -6,18 +6,19 @@ import { Menu, X, ChevronDown } from "lucide-react";
 import { trackWhatsappClick } from "@/lib/analytics";
 
 const EQUIPOS_LINKS = [
-  { name: "Domésticas", href: "#domesticas" },
-  { name: "Semiprofesionales", href: "#semiprofesionales" },
-  { name: "Profesionales", href: "#profesionales" },
-  { name: "Equipos POC", href: "#poc" },
+  { name: "Domésticas", href: "/#domesticas" },
+  { name: "Semiprofesionales", href: "/#semiprofesionales" },
+  { name: "Profesionales", href: "/#profesionales" },
+  { name: "Equipos POC", href: "/#poc" },
 ];
 
 const navLinks = [
-  { name: "SERVICIOS", href: "#servicios" },
-  { name: "MÉTRICAS", href: "#metricas" },
-  { name: "CÓMO COMPRAR", href: "#como-comprar" },
-  { name: "LIQUIDACIÓN", href: "#otros-productos" },
-  { name: "CONTACTO", href: "#contacto" },
+  { name: "SERVICIOS", href: "/#servicios" },
+  { name: "MÉTRICAS", href: "/#metricas" },
+  { name: "CÓMO COMPRAR", href: "/#como-comprar" },
+  { name: "LIQUIDACIÓN", href: "/#otros-productos" },
+  { name: "BLOG", href: "/blog" },
+  { name: "CONTACTO", href: "/#contacto" },
 ];
 
 // Flat version for the mobile menu, which has room to just list everything.
@@ -93,6 +94,15 @@ export function Navigation() {
     return () => window.removeEventListener("scroll", fn);
   }, []);
 
+  useEffect(() => {
+    if (!open) return;
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") setOpen(false);
+    };
+    document.addEventListener("keydown", onKey);
+    return () => document.removeEventListener("keydown", onKey);
+  }, [open]);
+
   return (
     <>
       <header
@@ -125,7 +135,7 @@ export function Navigation() {
         {/* Main nav */}
         <div className="px-6 lg:px-12 h-14 flex items-center justify-between gap-4">
           {/* Logo */}
-          <a href="#top" className="flex items-center gap-3 group shrink-0">
+          <a href="/#top" className="flex items-center gap-3 group shrink-0">
             <Image src="/logo-omni.png" alt="OMNI COMUNICACIONES" width={788} height={215} priority className="h-8 sm:h-10 w-auto" />
             <span className="hidden 2xl:block font-mono text-[0.625rem] text-muted-foreground border-l border-border pl-3 ml-1 tracking-widest whitespace-nowrap">
               RADIOCOMUNICACIÓN PROFESIONAL
@@ -164,15 +174,20 @@ export function Navigation() {
             onClick={() => setOpen(!open)}
             className="xl:hidden text-foreground w-11 h-11 -mr-2.5 flex items-center justify-center shrink-0"
             aria-label="Alternar menú"
+            aria-expanded={open}
+            aria-controls="menu-movil"
           >
             {open ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
           </button>
         </div>
       </header>
 
-      {/* Mobile menu */}
+      {/* Mobile menu. inert while closed: it is only faded out, so without it
+          keyboard and screen-reader users would still land on its links. */}
       <div
-        className={`fixed inset-0 z-40 bg-background flex flex-col transition-opacity duration-300 ${
+        id="menu-movil"
+        inert={!open}
+        className={`fixed inset-0 z-40 bg-background flex flex-col transition-opacity duration-300 xl:hidden ${
           open ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
         }`}
         style={{ paddingTop: "88px" }}

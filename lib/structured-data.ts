@@ -6,6 +6,8 @@ export function organizationSchema() {
     "@context": "https://schema.org",
     "@type": "Organization",
     name: "OMNI COMUNICACIONES",
+    legalName: "OMNITRONEC CIA. LTDA.",
+    taxID: "1793226293001",
     url: SITE_URL,
     logo: `${SITE_URL}/logo-omni.png`,
     description:
@@ -18,7 +20,68 @@ export function organizationSchema() {
       areaServed: "EC",
       availableLanguage: "Spanish",
     },
-    sameAs: [`https://wa.me/593996590777`],
+    // omnitronec.com es el sitio principal de la misma empresa.
+    sameAs: ["https://omnitronec.com", `https://wa.me/593996590777`],
+  };
+}
+
+// Schema LocalBusiness: para SEO local en Ecuador (Quito/Guayaquil) Google
+// prioriza LocalBusiness sobre Organization. Le decimos dónde estamos,
+// horario, área de servicio y método de contacto real.
+export function localBusinessSchema() {
+  return {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "@id": `${SITE_URL}#localbusiness`,
+    name: "OMNI COMUNICACIONES",
+    legalName: "OMNITRONEC CIA. LTDA.",
+    taxID: "1793226293001",
+    image: `${SITE_URL}/logo-omni.png`,
+    url: SITE_URL,
+    telephone: "+593-99-659-0777",
+    priceRange: "$$",
+    address: {
+      "@type": "PostalAddress",
+      streetAddress: "Beethoven E2-34 y Pasaje Debussy, Las Acacias (diagonal al Súper Akí)",
+      addressLocality: "Quito",
+      addressRegion: "Pichincha",
+      postalCode: "170133",
+      addressCountry: "EC",
+    },
+    geo: {
+      "@type": "GeoCoordinates",
+      // Calle Beethoven, Las Acacias (OpenStreetMap).
+      latitude: -0.151956,
+      longitude: -78.481332,
+    },
+    openingHoursSpecification: [
+      {
+        "@type": "OpeningHoursSpecification",
+        dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+        opens: "08:00",
+        closes: "18:00",
+      },
+    ],
+    areaServed: [
+      { "@type": "Country", name: "Ecuador" },
+      { "@type": "City", name: "Quito" },
+      { "@type": "City", name: "Guayaquil" },
+      { "@type": "City", name: "Cuenca" },
+    ],
+    sameAs: ["https://omnitronec.com", `https://wa.me/593996590777`],
+  };
+}
+
+// Schema WebSite: identifica el sitio y su idioma ante Google.
+export function websiteSchema() {
+  return {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "@id": `${SITE_URL}#website`,
+    name: "OMNI COMUNICACIONES",
+    url: SITE_URL,
+    inLanguage: "es-EC",
+    publisher: { "@id": `${SITE_URL}#localbusiness` },
   };
 }
 

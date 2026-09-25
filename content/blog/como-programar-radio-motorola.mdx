@@ -1,0 +1,179 @@
+---
+title: "Cómo programar un radio Motorola paso a paso (sin ser técnico)"
+description: "Qué significa programar un radio Motorola, qué necesitas (software CPS y cable), el paso a paso para editar canales de forma segura y qué nunca debes tocar."
+date: "2026-09-18"
+category: "guias"
+keywords:
+  - como programar radio motorola
+  - programar radio motorola ecuador
+  - programacion radio vhf uhf
+  - cable programacion radio
+  - software cps motorola
+cover: "/images/blog/como-programar-radio-motorola.jpg"
+coverAlt: "Técnico revisa un radio portátil junto a una laptop en su banco de trabajo"
+whatsappMessage: "Hola, leí el artículo sobre cómo programar radios Motorola y necesito ayuda con la programación."
+---
+
+Compraste radios Motorola y ahora necesitas cambiar un canal, agregar un grupo o configurar un radio nuevo para que hable con los demás. ¿Se puede hacer uno mismo? Sí, con las herramientas correctas y mucho cuidado.
+
+En esta guía te explicamos **cómo programar un radio Motorola** paso a paso, en lenguaje sencillo, y qué cosas nunca debes tocar.
+
+<Callout title="Antes de empezar">
+Solo debes programar las frecuencias que tu empresa tiene autorizadas por ARCOTEL. Cambiar frecuencias sin autorización puede interferir con servicios de emergencia y otras empresas, y es una infracción. Más información en nuestra [guía de licencias ARCOTEL](/blog/licencia-arcotel-radios-ecuador).
+</Callout>
+
+## Qué significa "programar" un radio
+
+Un radio no sabe por sí solo en qué frecuencia hablar. **Programarlo** es cargarle una configuración que define, entre otras cosas:
+
+- **Canales:** cada posición de la perilla y la frecuencia que usa.
+- **Tonos o códigos:** filtros que hacen que solo escuches a tu grupo y no a otros radios en la misma frecuencia.
+- **Potencia:** alta o baja, según el alcance que necesites y la batería que quieras ahorrar.
+- **Botones programables:** qué hace cada botón lateral (por ejemplo, monitor, cambio de potencia o emergencia).
+- **En radios digitales:** grupos de conversación, identificadores de cada radio, contactos y más.
+
+Toda esa configuración se guarda en un archivo que en Motorola se llama **codeplug**.
+
+## Lo que necesitas
+
+### 1. El software de programación (CPS)
+
+Motorola usa un programa llamado **CPS** (*Customer Programming Software*). Hay distintas versiones según la familia del radio. Por ejemplo, los radios MOTOTRBO, como el DEP250e o el R2, usan **MOTOTRBO CPS 2.0**. El software se obtiene a través de los canales oficiales de Motorola Solutions, normalmente con un registro previo.
+
+<Callout title="Ojo con las descargas">
+No descargues el software de programación desde páginas no oficiales. Además del riesgo de virus, una versión incorrecta puede dañar la configuración del radio.
+</Callout>
+
+### 2. El cable de programación
+
+Es un cable que conecta el radio a la computadora por USB. **Cada familia de radios usa su propio conector**, así que el cable del DEP250e no necesariamente sirve para otro modelo. Usa el cable correcto para tu radio.
+
+### 3. El driver del cable
+
+El driver es un pequeño programa que permite a la computadora reconocer el cable. Normalmente se instala junto con el CPS o por separado.
+
+### 4. Una computadora con Windows
+
+El CPS de Motorola funciona en Windows. Ten la batería del radio **completamente cargada** antes de empezar: si el radio se apaga a mitad de la escritura, puede quedar con una configuración incompleta.
+
+## Paso a paso
+
+### Paso 1: instalar el CPS y el driver
+
+Instala el software de programación y el driver del cable. Reinicia la computadora si el instalador lo pide.
+
+### Paso 2: leer el radio y guardar una copia de respaldo
+
+Conecta el cable al radio y a la computadora, enciende el radio y usa la opción **Leer** (*Read*) del CPS. El programa descargará la configuración actual del radio.
+
+**Antes de cambiar nada, guarda ese archivo como respaldo** con un nombre claro, por ejemplo `radio-garita-01-original`. Si algo sale mal, podrás volver a cargarlo.
+
+### Paso 3: editar canales
+
+Con la configuración abierta, busca la sección de canales. Ahí puedes, por ejemplo:
+
+- Cambiar el **nombre** del canal (en radios con pantalla).
+- Ajustar el **tono o código** para que coincida con el resto de tu flota.
+- Cambiar la **potencia** de alta a baja.
+- Asignar funciones a los **botones programables**.
+
+Haz un cambio a la vez y anota lo que modificaste.
+
+### Paso 4: escribir en el radio y probar
+
+Usa la opción **Escribir** (*Write*) para enviar la nueva configuración al radio. **No desconectes el cable ni apagues el radio** mientras se escribe.
+
+Al terminar, prueba el radio con otro de la flota: habla, escucha y verifica que el canal, los tonos y los botones funcionen como esperabas.
+
+<Callout title="Para toda la flota">
+Si vas a programar varios radios iguales, crea un archivo "maestro" que funcione bien y úsalo como base para los demás. Así evitas errores de un radio a otro.
+</Callout>
+
+## Cómo organizar los canales de tu empresa: un ejemplo
+
+Antes de abrir el software, conviene definir en papel cómo quieres organizar los canales. Veamos un ejemplo con un hotel mediano en Quito:
+
+| Canal | Uso | Quién lo usa |
+|---|---|---|
+| 1 | Operación general | Todos |
+| 2 | Recepción y botones | Recepción, botones, concierge |
+| 3 | Housekeeping | Camareras, supervisora de pisos |
+| 4 | Mantenimiento | Técnicos, jefe de mantenimiento |
+| 5 | Seguridad | Guardias, jefe de seguridad |
+| 6 | Emergencias | Reservado; solo se usa en emergencias |
+
+Con este plan, cada área habla en su canal sin interrumpir a las demás, y todos saben a qué canal cambiar para una comunicación general o una emergencia. En radios digitales, en lugar de canales separados se pueden usar **grupos de conversación** dentro de la misma frecuencia.
+
+## Checklist antes de escribir en el radio
+
+- ¿Guardaste la copia de respaldo de la configuración original?
+- ¿La batería está completamente cargada?
+- ¿Las frecuencias son las autorizadas por ARCOTEL?
+- ¿Los tonos o códigos coinciden con los del resto de la flota?
+- ¿Revisaste los nombres de canales y la función de cada botón?
+- ¿Tienes otro radio a mano para probar?
+
+## Clonar radios: programar muchos equipos iguales
+
+Cuando tienes una flota de radios del mismo modelo, no hace falta configurar uno por uno. El flujo habitual es:
+
+1. Programa **un radio** y pruébalo hasta que todo funcione perfecto.
+2. Guarda ese archivo como **maestro**.
+3. Abre el maestro y **escríbelo** en cada radio adicional.
+4. En radios digitales, cambia solo lo que debe ser único en cada radio, como su **identificador** y su nombre.
+
+Así una flota de 30 radios queda uniforme y sin errores.
+
+## ¿Se puede programar desde el teclado del radio?
+
+Algunos radios con pantalla y teclado permiten ajustes básicos desde el propio equipo, como el volumen, la potencia o ciertos contactos. Pero la configuración de canales y frecuencias en radios profesionales se hace **con el CPS y el cable**. Muchas empresas prefieren bloquear los cambios desde el teclado para que el personal no desconfigure los equipos por accidente.
+
+## Qué nunca debes tocar
+
+- **Frecuencias no autorizadas.** Solo las de tu título habilitante.
+- **Alineación o calibración.** Son ajustes de fábrica que requieren equipos de laboratorio. Cambiarlos puede degradar el radio para siempre.
+- **Actualizaciones de firmware** si no sabes exactamente lo que haces: un error puede dejar el radio inutilizable.
+- **Configuraciones de red digital** (identificadores de radio, repetidoras) si no conoces cómo está armado el sistema: puedes desconectar ese radio del resto.
+
+## Errores típicos y cómo resolverlos
+
+### "El radio no se detecta"
+
+- Revisa que el cable esté bien conectado y que sea el correcto para ese modelo.
+- Verifica que el driver esté instalado.
+- Prueba otro puerto USB.
+- Asegúrate de que el radio esté encendido.
+
+### "Codeplug incompatible" o error de versión
+
+Significa que el archivo o la versión del CPS no corresponde con la del radio. Lee el radio primero y trabaja sobre ese archivo, o actualiza el CPS a la versión adecuada.
+
+### El radio programado no escucha a los demás
+
+Casi siempre es un **tono o código distinto**, o un grupo digital mal configurado. Compara la configuración con la de un radio que sí funcione.
+
+## Preguntas frecuentes
+
+### ¿Qué cable necesito para programar un radio Motorola?
+
+Depende del modelo: cada familia usa su propio conector. Pregúntanos por el cable exacto de tu radio antes de comprar uno genérico.
+
+### ¿Puedo programar un radio Motorola desde el celular?
+
+Los radios profesionales tradicionales se programan desde una computadora con el CPS. Algunos equipos más nuevos y los radios POC se gestionan desde plataformas en la nube.
+
+### ¿Programar un radio anula la garantía?
+
+Cambiar canales y tonos con el software oficial no debería afectar la garantía. Lo que sí puede dañar el radio es tocar la alineación o instalar firmware incorrecto.
+
+### ¿Cuánto cuesta programar un radio?
+
+En OMNI, la programación es **gratis** para los radios comprados con nosotros.
+
+## La opción fácil: te lo programamos gratis
+
+Programar radios no es difícil una vez que tienes el software, el cable y la experiencia. Pero si solo lo harás de vez en cuando, o si tienes una flota grande, no vale la pena el riesgo ni el tiempo.
+
+En **OMNI COMUNICACIONES la programación es gratis con tu compra**: te entregamos los radios listos para usar, con canales, tonos y botones configurados según tu operación. Y si más adelante necesitas un cambio, escríbenos.
+
+¿Aún no sabes qué radio comprar? Revisa nuestra guía para [elegir el radio Motorola ideal](/blog/elegir-radio-motorola-empresa).

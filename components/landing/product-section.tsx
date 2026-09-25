@@ -3,6 +3,7 @@
 import { useCallback, useEffect, useRef, useState, type Ref } from "react";
 import { createPortal } from "react-dom";
 import Image from "next/image";
+import Link from "next/link";
 import { motion, useInView, useReducedMotion } from "framer-motion";
 import type { ProductItem } from "./catalog-data";
 import { trackQuoteClick } from "@/lib/analytics";
@@ -427,6 +428,7 @@ export function ProductSection({
   titleBottom,
   tagline,
   items,
+  guide,
 }: {
   id: string;
   catalogNumber: string;
@@ -434,6 +436,8 @@ export function ProductSection({
   titleBottom: string;
   tagline: string;
   items: ProductItem[];
+  /** Enlace opcional a un artículo o categoría del blog relacionado con esta sección. */
+  guide?: { label: string; href: string };
 }) {
   const [lightbox, setLightbox] = useState<LightboxState | null>(null);
   const reduceMotion = useReducedMotion();
@@ -526,9 +530,20 @@ export function ProductSection({
               />
             </h2>
           </div>
-          <p className="font-mono text-[0.625rem] text-muted-foreground tracking-widest max-w-[240px] text-right hidden lg:block">
-            {tagline}
-          </p>
+          <div className="flex flex-col items-start lg:items-end gap-4">
+            <p className="font-mono text-[0.625rem] text-muted-foreground tracking-widest max-w-[240px] text-right hidden lg:block">
+              {tagline}
+            </p>
+            {guide && (
+              <Link
+                href={guide.href}
+                className="inline-flex items-center gap-2 min-h-9 px-4 border border-primary/40 font-mono text-[0.625rem] tracking-widest text-primary hover:bg-primary hover:text-background transition-colors"
+              >
+                <span aria-hidden="true">▸</span>
+                {guide.label}
+              </Link>
+            )}
+          </div>
         </ScrollReveal>
 
         <ScrollStagger className={`grid ${GRID_COLS} gap-px bg-border border border-border`}>
@@ -678,7 +693,7 @@ export function ProductSection({
         <div className="py-4 flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4 sm:justify-between border-b border-border">
           <span className="font-mono text-[0.625rem] text-muted-foreground">¿NECESITAS OTRO MODELO O CANTIDAD MAYOR? PREGÚNTANOS →</span>
           <a
-            href={waLink("un equipo de radiocomunicación")}
+            href={`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent("Hola, busco otro modelo o una cantidad mayor de equipos. ¿Me pueden cotizar?")}`}
             target="_blank"
             rel="noopener"
             onClick={() => trackQuoteClick(`section_footer_${id}`)}

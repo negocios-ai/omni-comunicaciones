@@ -11,10 +11,15 @@ import { FooterSection } from "@/components/landing/footer-section";
 import { WhatsappFloat } from "@/components/landing/whatsapp-float";
 import { BrandRevealScroll } from "@/components/ui/text-scroll-animation";
 import { DOMESTICAS, SEMIPROFESIONALES, PROFESIONALES, POC } from "@/components/landing/catalog-data";
-import { organizationSchema, allProductSchemas } from "@/lib/structured-data";
+import { organizationSchema, localBusinessSchema, websiteSchema, allProductSchemas } from "@/lib/structured-data";
 
 export default function Home() {
-  const jsonLd = [organizationSchema(), ...allProductSchemas()];
+  const jsonLd = [
+    organizationSchema(),
+    localBusinessSchema(),
+    websiteSchema(),
+    ...allProductSchemas(),
+  ];
 
   return (
     <main className="relative min-h-screen overflow-x-hidden bg-background">
@@ -31,6 +36,7 @@ export default function Home() {
         titleTop="RADIOS"
         titleBottom="DOMÉSTICAS"
         tagline="USO PERSONAL / FAMILIAR / PRIMER CONTACTO CON RADIOCOMUNICACIÓN"
+        guide={{ label: "GUÍA: ¿VHF O UHF?", href: "/blog/vhf-vs-uhf-empresas-ecuador" }}
         items={DOMESTICAS}
       />
       <ProductSection
@@ -39,6 +45,7 @@ export default function Home() {
         titleTop="RADIOS"
         titleBottom="SEMIPROFESIONALES"
         tagline="EQUIPOS DE ENTRADA / OPERACIÓN DIARIA / BUEN COSTO-BENEFICIO"
+        guide={{ label: "GUÍA: ¿DIGITAL O ANALÓGICO?", href: "/blog/radio-dmr-vs-analogico" }}
         items={SEMIPROFESIONALES}
       />
       <ProductSection
@@ -47,6 +54,7 @@ export default function Home() {
         titleTop="RADIOS"
         titleBottom="PROFESIONALES"
         tagline="HASTA 260 CANALES / DIGITAL DMR / MÁXIMA DURABILIDAD"
+        guide={{ label: "GUÍA: CÓMO ELEGIR TU RADIO", href: "/blog/elegir-radio-motorola-empresa" }}
         items={PROFESIONALES}
       />
       <BulkBanner />
@@ -57,6 +65,7 @@ export default function Home() {
         titleBottom="POC · PUSH TO TALK"
         tagline="RED CELULAR 4G/LTE / SIN LÍMITE DE DISTANCIA / GPS"
         items={POC}
+        guide={{ label: "GUÍA: ¿QUÉ ES UN RADIO POC?", href: "/blog/radios-poc-ecuador" }}
       />
       <BrandRevealScroll />
       <ServicesSection />

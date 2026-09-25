@@ -1,10 +1,16 @@
 import type { Metadata } from "next";
 import { Navigation } from "@/components/landing/navigation";
 import { FooterSection } from "@/components/landing/footer-section";
+import { OG_DEFAULTS, SITE_URL } from "@/lib/site-config";
+
+const TITLE = "Política de Privacidad — OMNI COMUNICACIONES";
+const DESCRIPTION = "Cómo OMNI COMUNICACIONES recopila, usa y protege tu información.";
 
 export const metadata: Metadata = {
-  title: "Política de Privacidad — OMNI COMUNICACIONES",
-  description: "Cómo OMNI COMUNICACIONES recopila, usa y protege tu información.",
+  title: TITLE,
+  description: DESCRIPTION,
+  alternates: { canonical: `${SITE_URL}/privacidad` },
+  openGraph: { ...OG_DEFAULTS, title: TITLE, description: DESCRIPTION, url: `${SITE_URL}/privacidad`, type: "website" },
 };
 
 const linkClass = "text-primary underline underline-offset-2 hover:text-primary-hover";
@@ -19,7 +25,7 @@ export default function PrivacidadPage() {
           Política de Privacidad
         </h1>
         <p className="font-mono text-[0.625rem] text-muted-foreground tracking-widest uppercase mb-10">
-          Última actualización: agosto 2026
+          Última actualización: septiembre 2026
         </p>
 
         <div className="space-y-8 text-sm leading-relaxed text-muted-foreground [&_h2]:font-display [&_h2]:text-foreground [&_h2]:text-xl [&_h2]:mb-3 [&_h2]:tracking-tight [&_strong]:text-foreground [&_ul]:list-disc [&_ul]:pl-5 [&_ul]:space-y-1">
@@ -27,14 +33,26 @@ export default function PrivacidadPage() {
             <h2>1. Quiénes somos</h2>
             <p>
               <strong>OMNI COMUNICACIONES</strong> es un distribuidor de radios Motorola, Kenwood,
-              ICOM y equipos POC RugGear con operación en Ecuador. Somos responsables del
+              ICOM y equipos POC RugGear con operación en Ecuador. El sitio lo opera{" "}
+              <strong>OMNITRONEC CIA. LTDA.</strong> (RUC 1793226293001), responsable del
               tratamiento de los datos personales que recibimos a través de este sitio, conforme a
               la <strong>Ley Orgánica de Protección de Datos Personales (LOPDP)</strong> de Ecuador.
-              Puedes contactarnos en{" "}
+            </p>
+            <p className="mt-3">
+              Este sitio y{" "}
+              <a href="https://omnitronec.com" className={linkClass}>
+                omnitronec.com
+              </a>{" "}
+              pertenecen a la misma empresa: omnitronec.com es nuestro sitio principal, con todo
+              nuestro portafolio, y este sitio se enfoca en radios de comunicación y productos
+              destacados. Por eso nuestro correo de contacto usa el dominio omnitronec.com.
+            </p>
+            <p className="mt-3">
+              Dirección: Beethoven E2-34 y Pasaje Debussy, Las Acacias, Quito. Correo:{" "}
               <a href="mailto:negocios@omnitronec.com" className={linkClass}>
                 negocios@omnitronec.com
-              </a>{" "}
-              o al{" "}
+              </a>
+              . WhatsApp:{" "}
               <a href="https://wa.me/593996590777" className={linkClass}>
                 +593 99 659 0777
               </a>

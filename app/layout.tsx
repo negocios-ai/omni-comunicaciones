@@ -5,7 +5,7 @@ import { SpeedInsights } from '@vercel/speed-insights/next'
 import { CursorTracker } from '@/components/landing/cursor-tracker'
 import { SmoothScroll } from '@/components/landing/smooth-scroll'
 import { ScrollProgressBar } from '@/components/ui/scroll-reveal'
-import { SITE_URL } from '@/lib/site-config'
+import { OG_DEFAULTS, SITE_URL } from '@/lib/site-config'
 import './globals.css'
 
 const TITLE = 'Radios Motorola y Kenwood en Ecuador | OMNI COMUNICACIONES';
@@ -15,6 +15,9 @@ export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: TITLE,
   description: DESCRIPTION,
+  alternates: {
+    canonical: SITE_URL,
+  },
   keywords: [
     'radios Motorola Ecuador',
     'radios Kenwood Ecuador',
@@ -25,18 +28,16 @@ export const metadata: Metadata = {
     'distribuidor Motorola Ecuador',
   ],
   openGraph: {
+    ...OG_DEFAULTS,
     title: TITLE,
     description: DESCRIPTION,
     url: SITE_URL,
-    siteName: 'OMNI COMUNICACIONES',
-    locale: 'es_EC',
     type: 'website',
-    images: [{ url: '/og-image.png', width: 1200, height: 630, alt: 'OMNI COMUNICACIONES' }],
   },
+  // Sin título ni descripción: así X/Twitter usa los og:title/og:description
+  // de cada página en vez de heredar los de la portada.
   twitter: {
     card: 'summary_large_image',
-    title: TITLE,
-    description: DESCRIPTION,
     images: ['/og-image.png'],
   },
   verification: {

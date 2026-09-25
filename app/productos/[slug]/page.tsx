@@ -7,7 +7,7 @@ import { WhatsappFloat } from "@/components/landing/whatsapp-float";
 import { OUTLET_PRODUCTS, getOutletProduct } from "@/components/landing/outlet-products-data";
 import { OutletGallery } from "@/components/landing/outlet-gallery";
 import { OutletWhatsappButton } from "@/components/landing/outlet-whatsapp-button";
-import { SITE_URL } from "@/lib/site-config";
+import { OG_DEFAULTS, SITE_URL } from "@/lib/site-config";
 
 export function generateStaticParams() {
   return OUTLET_PRODUCTS.map((p) => ({ slug: p.slug }));
@@ -30,10 +30,11 @@ export async function generateMetadata({
     description: product.metaDescription,
     alternates: { canonical: url },
     openGraph: {
+      ...OG_DEFAULTS,
       title: product.metaTitle,
       description: product.metaDescription,
       url,
-      images: cover ? [{ url: `${SITE_URL}${cover.src}` }] : undefined,
+      images: cover ? [{ url: `${SITE_URL}${cover.src}` }] : OG_DEFAULTS.images,
     },
     twitter: {
       card: "summary_large_image",

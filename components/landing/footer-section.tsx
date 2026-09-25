@@ -6,29 +6,30 @@ import { trackWhatsappClick } from "@/lib/analytics";
 
 const LINKS = {
   CATÁLOGO: [
-    { name: "Domésticas", href: "#domesticas" },
-    { name: "Semiprofesionales", href: "#semiprofesionales" },
-    { name: "Profesionales", href: "#profesionales" },
-    { name: "Equipos POC", href: "#poc" },
-    { name: "Liquidación", href: "#otros-productos" },
+    { name: "Domésticas", href: "/#domesticas" },
+    { name: "Semiprofesionales", href: "/#semiprofesionales" },
+    { name: "Profesionales", href: "/#profesionales" },
+    { name: "Equipos POC", href: "/#poc" },
+    { name: "Liquidación", href: "/#otros-productos" },
   ],
   EMPRESA: [
-    { name: "Inicio", href: "#top" },
-    { name: "Servicios técnicos", href: "#servicios" },
-    { name: "Cómo comprar", href: "#como-comprar" },
-    { name: "Métricas", href: "#metricas" },
-    { name: "Contacto", href: "#contacto" },
+    { name: "Inicio", href: "/#top" },
+    { name: "Servicios técnicos", href: "/#servicios" },
+    { name: "Cómo comprar", href: "/#como-comprar" },
+    { name: "Métricas", href: "/#metricas" },
+    { name: "Contacto", href: "/#contacto" },
+    { name: "Blog", href: "/blog" },
   ],
   MARCAS: [
-    { name: "Motorola", href: "#profesionales" },
-    { name: "Kenwood", href: "#profesionales" },
-    { name: "RugGear", href: "#poc", badge: "POC" },
-    { name: "ICOM", href: "#domesticas" },
+    { name: "Motorola", href: "/#profesionales" },
+    { name: "Kenwood", href: "/#profesionales" },
+    { name: "RugGear", href: "/#poc", badge: "POC" },
+    { name: "ICOM", href: "/#domesticas" },
   ],
   CONTACTO: [
     { name: "+593 99 659 0777", href: "https://wa.me/593996590777" },
     { name: "negocios@omnitronec.com", href: "mailto:negocios@omnitronec.com" },
-    { name: "Ecuador", href: "#" },
+    { name: "Ecuador", href: "/#contacto" },
   ],
   LEGAL: [
     { name: "Política de privacidad", href: "/privacidad" },
@@ -51,7 +52,7 @@ export function FooterSection() {
       <div className="max-w-[1400px] mx-auto px-6 lg:px-12">
         <div className="border-b border-border py-12 grid lg:grid-cols-[1fr_2fr] gap-10">
           <div>
-            <a href="#top" className="inline-flex items-center gap-3 mb-5 group">
+            <a href="/#top" className="inline-flex items-center gap-3 mb-5 group">
               <Image src="/logo-omni.png" alt="OMNI COMUNICACIONES" width={788} height={215} className="h-12 w-auto" />
             </a>
             <p className="text-sm text-muted-foreground leading-relaxed max-w-xs font-mono">
@@ -60,6 +61,22 @@ export function FooterSection() {
             </p>
             <p className="mt-3 font-mono text-[11px] text-muted-foreground">
               Envío a nivel nacional vía Servientrega o cooperativa.
+            </p>
+            <p className="mt-3 font-mono text-[11px] text-muted-foreground">
+              Beethoven E2-34 y Pasaje Debussy, Las Acacias, Quito.
+              <br />
+              Lunes a viernes, 8:00 a 18:00.
+            </p>
+            <p className="mt-3 font-mono text-[11px] text-muted-foreground">
+              Sitio principal de la empresa:{" "}
+              <a
+                href="https://omnitronec.com"
+                target="_blank"
+                rel="noopener"
+                className="text-foreground hover:text-primary transition-colors"
+              >
+                omnitronec.com ↗
+              </a>
             </p>
             <div className="flex gap-5 mt-6">
               <a
@@ -103,7 +120,7 @@ export function FooterSection() {
 
         <div className="py-5 flex flex-col md:flex-row items-center justify-between gap-4">
           <p className="font-mono text-[0.625rem] text-muted-foreground">
-            © 2026 OMNI COMUNICACIONES. TODOS LOS DERECHOS RESERVADOS.
+            © 2026 OMNI COMUNICACIONES · OMNITRONEC CIA. LTDA. · RUC 1793226293001. TODOS LOS DERECHOS RESERVADOS.
           </p>
           <div className="flex items-center gap-6">
             <span className="font-mono text-[0.625rem] text-muted-foreground tabular-nums">{time} ECT</span>
